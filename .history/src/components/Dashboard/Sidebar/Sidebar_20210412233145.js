@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isDoctor, setIsDoctor] = useState(false);
 
     useEffect(() => {
-      fetch("https://salty-plateau-71286.herokuapp.com/isDoctor", {
+      fetch("https://dental-doctor-portals.herokuapp.com/isDoctor", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ email: loggedInUser.email }),

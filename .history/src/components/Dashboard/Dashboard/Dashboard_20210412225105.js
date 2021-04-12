@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import AppointmentsByDate from '../AppointmentsByDate/AppointmentsByDate';
+import Sidebar from '../Sidebar/Sidebar';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { UserContext } from '../../../App';
-import AppointmentsByDate from '../AppointmentsByDate/AppointmentsByDate';
-import Sidebar from '../Sidebar/Sidebar';
 
 const containerStyle = {
     backgroundColor: "#F4FDFB",
@@ -20,7 +20,7 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        fetch('https://dental-doctor-portals.herokuapp.com/appointmentsByDate', {
+        fetch('https://salty-plateau-71286.herokuapp.com/appointmentsByDate', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ date: selectedDate, email: loggedInUser.email })

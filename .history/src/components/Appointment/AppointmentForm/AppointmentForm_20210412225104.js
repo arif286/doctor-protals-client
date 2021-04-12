@@ -1,6 +1,6 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
+import { useForm } from "react-hook-form";
 
 const customStyles = {
     content: {
@@ -17,13 +17,13 @@ Modal.setAppElement('#root')
 
 const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
     const { register, handleSubmit, errors } = useForm();
-
+    
     const onSubmit = data => {
         data.service = appointmentOn;
         data.date = date;
         data.created = new Date();
-
-        fetch('https://dental-doctor-portals.herokuapp.com/addAppointment', {
+        
+        fetch('https://salty-plateau-71286.herokuapp.com/addAppointment', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -37,7 +37,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
         })
 
 
-
+        
     }
 
     return (
